@@ -24,4 +24,5 @@
 
 .inner {
   border: dotted;
+  user-select: none;
 }

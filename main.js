@@ -1,16 +1,18 @@
 import {Player} from '/src/player.js';
 import {Board} from '/src/board.js';
-import {Game} from '/src/game.js';
 
 
 let test = new Player("test", "X");
 
 let board = new Board();
 
-let game = new Game();
 
-game.getField();
+board.getField();
 
+
+// test
+
+/*
 console.log(test.getName());
 
 //board.displayBoard()
@@ -54,3 +56,5 @@ board.placeMark(2, 1, "O")
 board.displayBoard()
 
 console.log(board.checkWinner())
+
+*/
