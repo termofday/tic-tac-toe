@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .field {
@@ -23,5 +24,4 @@
 
 .inner {
   border: dotted;
-  width: 50px;
 }
