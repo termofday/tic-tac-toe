@@ -1,12 +1,9 @@
 class Player {
 
-    constructor(name, mark) {
+    constructor(name, mark, runde) {
         this.name = name;
         this.mark = mark;
-    }
-
-    getName() {
-        return this.name;
+        this.runde = runde;
     }
 
 }
