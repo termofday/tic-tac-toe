@@ -1,5 +1,3 @@
-//import { run, clickHandler } from "../main";
-
 import { Game } from "./game";
 
 class Board {
@@ -30,7 +28,7 @@ class Board {
             return true;
         } else {
             //return console.log("error");
-            Game.clickHandler('')
+            Game.clickHandler
         }
     }
 

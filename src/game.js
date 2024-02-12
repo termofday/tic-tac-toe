@@ -1,4 +1,3 @@
-import {Player} from '/src/player.js';
 import {Board} from '/src/board.js';
 
 class Game {
@@ -16,46 +15,53 @@ class Game {
 
 clickHandler(e) {
 
-
-
    this.actual_player = this.player_list[this.actual_player_id];
   
 try {
   switch(e.target.id) {
       case '0':
+        console.log(this.board)
+        e.target.textContent = this.board[1];
          this.board.placeMark(0, 0, this.actual_player.mark)
          this.board.displayBoard()
-
       break;
       case '1':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(0, 1, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '2':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(0, 2, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '3':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 0, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '4':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 1, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '5':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 2, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '6':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 0, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '7':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 1, this.actual_player.mark)
         this.board.displayBoard()
       break;
       case '8':
+        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 2, this.actual_player.mark)
         this.board.displayBoard()
       break;
@@ -64,8 +70,8 @@ try {
       break;
   }
 }
-catch {
-  console.error('Field is played.')
+catch (e) {
+  console.error(e, 'Field is played.')
   return
 }
   console.log(this.board.checkWinner())
@@ -91,7 +97,7 @@ catch {
 
        ele.classList.add('inner');
 
-       ele.textContent = "X";
+       ele.textContent = "";
        
        ele.id = id;
        id++;
