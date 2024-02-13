@@ -6,12 +6,24 @@ class Game {
 
         this.actual_player_id = pid;
 
-        this.player_list = plist
+        this.player_list = plist;
 
-        this.actual_player = null
+        this.actual_player = null;
 
         this.board = new Board();
+
+        this.nextIs = document.getElementById('cmd');
     }
+
+whoNext() {
+  setInterval(() => {
+    this.nextIs.textContent = `Next Player: ${this.actual_player = this.player_list[this.actual_player_id].mark}`;
+  }, 300)
+}
+
+next() {
+  this.actual_player_id = (this.actual_player_id + 1) % this.player_list.length;
+}
 
 clickHandler(e) {
 
@@ -20,50 +32,49 @@ clickHandler(e) {
 try {
   switch(e.target.id) {
       case '0':
-        console.log(this.board)
-        e.target.textContent = this.board[1];
          this.board.placeMark(0, 0, this.actual_player.mark)
-         this.board.displayBoard()
+         this.board.displayBoard();
+         e.target.textContent = this.board.outputBoard(0, 0);
       break;
       case '1':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(0, 1, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(0, 1);
       break;
       case '2':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(0, 2, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(0, 2);
       break;
       case '3':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 0, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(1, 0);
       break;
       case '4':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 1, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(1, 1);
       break;
       case '5':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(1, 2, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(1, 2);
       break;
       case '6':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 0, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(2, 0);
       break;
       case '7':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 1, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(2, 1);
       break;
       case '8':
-        e.target.textContent = this.actual_player.mark;
         this.board.placeMark(2, 2, this.actual_player.mark)
-        this.board.displayBoard()
+        this.board.displayBoard();
+        e.target.textContent = this.board.outputBoard(2, 2);
       break;
       default:
           console.error("Error in clickHandler() ...");
@@ -75,14 +86,13 @@ catch (e) {
   return
 }
   console.log(this.board.checkWinner())
-
-  this.actual_player_id = (this.actual_player_id + 1) % this.player_list.length;
+  this.next();
 }
 
-
  run() {
+  this.whoNext();
   const field = document.getElementById('app');
-  field.classList.add('field')
+  field.classList.add('field');
 
   let newHaW = field.offsetWidth / 4;
 

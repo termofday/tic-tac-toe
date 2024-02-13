@@ -11,6 +11,10 @@ class Board {
 
     }
 
+    outputBoard(row, col) {
+        return this.board[row][col]
+    }
+
     displayBoard() {
         for (let row of this.board) {
             console.log(row.join(' | '));
@@ -27,41 +31,40 @@ class Board {
             this.board[row][col] = playerMark;
             return true;
         } else {
-            //return console.log("error");
-            Game.clickHandler
+           // return console.log("error");
+            Game.clickHandler();
         }
     }
 
     checkWinner() {
         
-    // zeile
-
-    for (let i = 0; i < 3; i++) {
-        if (this.board[i][0] && this.board[i][1] && this.board[i][2] === this.board[i][0] && this.board[i][1] !== null) {
-            return this.board[i][0];
+    // Horizontal überprüfen
+    for (let row = 0; row < 3; row++) {
+        if (this.board[row][0] === this.board[row][1] && this.board[row][1] === this.board[row][2] && this.board[row][0] !== null) {
+            return this.board[row][0];
         }
     }
 
-    // spalten
-
-    for (let i = 0; i < 3; i++) {
-        if (this.board[0][i] && this.board[1][i] && this.board[2][i] === this.board[0][i] && this.board[1][i] !== null) {
-            return this.board[0][i];
+    // Vertikal überprüfen
+    for (let col = 0; col < 3; col++) {
+        if (this.board[0][col] === this.board[1][col] && this.board[1][col] === this.board[2][col] && this.board[0][col] !== null) {
+            return this.board[0][col];
         }
     }
 
-    // diagonale links oben rechts unten
-
-    if (this.board[0][0] && this.board[1][1] && this.board[0][0] == this.board[2][2] && this.board !== null) {
+    // Diagonal (von links oben nach rechts unten) überprüfen
+    if (this.board[0][0] === this.board[1][1] && this.board[1][1] === this.board[2][2] && this.board[0][0] !== null) {
         return this.board[0][0];
     }
 
-        // diagonale oben rechts unten links
+    // Diagonal (von rechts oben nach links unten) überprüfen
+    if (this.board[0][2] === this.board[1][1] && this.board[1][1] === this.board[2][0] && this.board[0][2] !== null) {
+        return this.board[0][2];
+    }
 
-        if (this.board[0][2] && this.board[1][1] && this.board[2][0] == this.board[0][2] && this.board !== null) {
-            return this.board[0][0];
-        }
-    
+    // Kein Gewinner
+    return null;
+
     }
 }
 
