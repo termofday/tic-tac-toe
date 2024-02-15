@@ -34,3 +34,28 @@
   border: dotted;
   user-select: none;
 }
+
+#restart {
+  display: none;
+  font-size: 1.35rem;
+  color: wheat;
+  padding: 10px;
+  background-color: rebeccapurple;
+}
+
+#titStaBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+h1 {
+  font-size: 1.95rem;
+}
+
+#cmd {
+  padding: 15px;
+  font-size: 1.45rem;
+  font-weight: 600;
+}

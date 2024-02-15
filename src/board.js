@@ -52,14 +52,30 @@ class Board {
         }
     }
 
-    // Diagonal (von links oben nach rechts unten) überprüfen
+    // Diagonal lr
     if (this.board[0][0] === this.board[1][1] && this.board[1][1] === this.board[2][2] && this.board[0][0] !== null) {
         return this.board[0][0];
     }
 
-    // Diagonal (von rechts oben nach links unten) überprüfen
+    // Diagonal rl
     if (this.board[0][2] === this.board[1][1] && this.board[1][1] === this.board[2][0] && this.board[0][2] !== null) {
         return this.board[0][2];
+    }
+
+    // Felder nicht null ? Tie!
+
+    // 2x for row/col if !== null
+
+    let timer = 0;
+    for (let i of this.board) {
+        for (let x in this.board) {
+            if (i[x] !== null) {
+                timer += 1;
+            }
+            if (timer >= 9) {
+                return "TIE!"
+            }
+        }
     }
 
     // Kein Gewinner
